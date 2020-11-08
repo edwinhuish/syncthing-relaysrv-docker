@@ -14,7 +14,7 @@ RUN apk add --update libc6-compat libstdc++ \
   && apk add --no-cache --virtual build ca-certificates wget \
   && update-ca-certificates \
   && wget -P /tmp ${BUILD_HOST}/${BUILD_FILE_NAME}.tar.gz \
-  && tar xvf /tmp/${BUILD_FILE_NAME}.tar.gz \
+  && tar xvf /tmp/${BUILD_FILE_NAME}.tar.gz -C /tmp \
   && mv /tmp/${BUILD_FILE_NAME}/strelaysrv /usr/local/bin/strelaysrv \
   && addgroup -g 1000 strelaysrv \
   && adduser -D -G strelaysrv -u 1000 strelaysrv \
